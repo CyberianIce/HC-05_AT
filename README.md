@@ -20,12 +20,11 @@ Very good, thanks for asking! It creates two serial interfaces and simply passes
 <img src="assets/Schematic.png">
 
 Legend:  
-HC-05 **EN_** ![#0000ff](https://via.placeholder.com/15/0000ff/ffffff?text=%20) Arduino **D9**  
-HC-05 **TXD** ![#ffa500](https://via.placeholder.com/15/ffa500/000000?text=%20) Arduino **D10**  
-HC-05 **RXD** ![#009900](https://via.placeholder.com/15/009900/ffffff?text=%20) Arduino **D11**  
-HC-05 **GND** ![#000000](https://via.placeholder.com/15/000000/ffffff?text=%20) Arduino **GND**  
-HC-05 **VCC** ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=%20) Arduino **5V**  
-
+HC-05 **EN_** <-> Arduino **D9**  
+HC-05 **TXD** <-> Arduino **D10**  
+HC-05 **RXD** <-> Arduino **D11**  
+HC-05 **GND** <-> Arduino **GND**  
+HC-05 **VCC** <-> Arduino **5V**  
 
 ## Serial console configuration
 **In order to pass through commands from one serial interface to another, both newline and carriage return must be selected as newline characters.** For more details, check out picture below:  
