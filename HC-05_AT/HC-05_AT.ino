@@ -2,7 +2,7 @@
 
 /**
  * CONFIGURATION
- * On Uno/Mega only interrupt pins can be used (designated with tilda symbol ~)
+ * On Uno/Mega only interrupt capable pins can be used (designated with tilda symbol ~)
  */
 #define HC_ENABLE 9 // Connect pin 9 from Arduino to pin ENABLE on HC-05
 #define HC_TX 10 // Connect pin 10 from Arduino to pin TX on HC-05
@@ -19,11 +19,7 @@ String hlpCmd = "";
 void setup() {
   Serial.begin(9600);
   Serial.setTimeout(50);
-  Serial.println("");
-  Serial.println("##############################################################");
-  Serial.println("#   Do not forget to set Both NL & CR for end of line char   #");
-  Serial.println("##############################################################");
-  Serial.println("");
+  Serial.println(F("\n##############################################################\n#   Do not forget to set Both NL & CR for end of line char   #\n##############################################################\n"));
   help();
   pinMode(HC_ENABLE, OUTPUT);
   digitalWrite(HC_ENABLE, HIGH); // Enter AT mode
@@ -77,5 +73,5 @@ void help() {
   Serial.println(F("AT+CMODE? (Print curret Bluetooth device Gerneral Inquiry Access Code"));
   Serial.println(F("AT+CMODE=<Param> (Set Bluetooth device connect mode. Params: 0 for fixed address, 1 for any address or 2 for slave-loop\n"));
   
-  Serial.println(F("Enter AT command:\n"));
+  Serial.println(F("Enter AT command:"));
 }
