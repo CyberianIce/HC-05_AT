@@ -2,9 +2,9 @@
 HC-05 Bluetooth module AT mode configurator for Arduino (Nano/Uno/Mega)
 
 ## What is this?
-Just a small Arduino serial console application for configuring HC-05 Bluetoot module via serial console. It contain list of available commands and common usage patterns.
+Small Arduino serial console application for configuring HC-05 Bluetoot module via serial console. It contain list of available AT commands and common usage patterns. It's manily used to change default HC-05 Bluetooth name, PIN code, operation mode, etc.
 
-## Yeah, but why Arduino?
+### Yeah, but why Arduino?
 Long story short: because HC-05 operates at +5V TTL. Any other common serial interface, such as direct PC RS-232, Raspberry Pi serial, or USB-2-UART adapters like CP2102 operates at +3.3V TTL, and while in theory you may use any of these to configure HC-05, you also need TTL logic level converter in between, which complicates the design. Exception is FTDI which can be configured to operate at both +5V and +3.3V TTL, but they come in many flavours, while Arduino is defacto standard.
 
 ### What is AT mode?
