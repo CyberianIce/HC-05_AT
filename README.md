@@ -1,13 +1,19 @@
 # HC-05_AT
-HC-05 Bluetooth module AT mode configurator
+HC-05 Bluetooth module AT mode configurator for Arduino (Nano/Uno/Mega)
 
 ## What is this?
-Just a small Arduino application for configuring HC-05 Bluetoot module via serial console. It contain list of available commands and common usage patterns.
+Just a small Arduino serial console application for configuring HC-05 Bluetoot module via serial console. It contain list of available commands and common usage patterns.
+
+## Yeah, but why Arduino?
+Long story short: because HC-05 operates at +5V TTL. Any other common serial interface, such as direct PC RS-232, Raspberry Pi serial, or USB-2-UART adapters like CP2102 operates at +3.3V TTL, and while in theory you may use any of these to configure HC-05, you also need TTL logic level converter in between, which complicates the design. Exception is FTDI which can be configured to operate at both +5V and +3.3V TTL, but they come in many flavours, while Arduino is defacto standard.
 
 ### What is AT mode?
 In order to change default configuration parameters of your Bluetooth module (such as device name, PIN code, ...) You need to put your device in AT mode first. This can be done in one of following two ways:  
-1. Setting EN pin on HC-05 module to HIGH while powering on HC-05
+1. Setting EN pin on HC-05 module to HIGH while powering on HC-05.
 2. Some HC-05 modules are equipped with small hardware button (next to EN pin). If Your device is equipped with one, all you need to do in order to enter AT mode is to keep this button pressed while powering on HC-05 module.
+
+***Notice***  
+*EN pin must be set to HIGH before HC-05 is supplied with power.*
 
 ### How do I know if I am in AT mode?
 Once you successfully enter AT mode, your HC-05 LED will start blinking very slowly (with 3 second interval)
@@ -26,11 +32,17 @@ HC-05 **RXD** <-> Arduino **D11**
 HC-05 **GND** <-> Arduino **GND**  
 HC-05 **VCC** <-> Arduino **5V**  
 
+***Notice***  
+*As mentioned above, in order to boot in AT mode, EN pin on HC-05 must be supplied with +5V **BEFORE** HC-05 is supplied with power. One can achieve this in multiple ways:*  
+- *Placing simple switch or momentary button between HC-05 VCC and Arduino +5V which must be pressed after arduino is booted (after signal HIGH is sent from D9 to EN)*
+- *Connecting HC-05 VCC after arduino is powered on and ready*
+- *Or you may even wire everything like pictured above, and shortly disconnect HC-05 VCC and reconnect it back after Arduino is booted.*
+
 ## Serial console configuration
 **In order to pass through commands from one serial interface to another, both newline and carriage return must be selected as newline characters.** For more details, check out picture below:  
 
 <img src="assets/serial-console.png">
 
 ## AT command list
-*Need editing*
+*Need editing*  
 Once you upload this scatch to Arduino and open serial port monitor, list of common AT command with typical usage pattern will be displayed.
