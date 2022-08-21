@@ -41,5 +41,5 @@ HC-05 **VCC** <-> Arduino **5V**
 <img src="assets/serial-console.png">
 
 ## AT command list
-*Need editing*  
+*Need description*  
 Once you upload this scatch to Arduino and open serial port monitor, list of common AT command with typical usage pattern will be displayed.
